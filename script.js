@@ -26,8 +26,7 @@ noBtn.addEventListener("mouseover", function () {
 function typeMessage(message, duration) {
     let i = 0;
     const container = document.getElementById("message-container");
-    container.style.width = "auto";
-    container.innerHTML = ""; // Clear existing text
+    container.innerHTML = ""; // Clear any existing text
 
     function type() {
         if (i < message.length) {
@@ -44,8 +43,8 @@ function typeMessage(message, duration) {
 document.getElementById("yes-btn").addEventListener("click", function () {
     // Clear the screen and show "Just for You"
     document.body.innerHTML = `
-        <h1 style='color:#ff4b5c;'>❤️ Just for You ❤️</h1>
-        <div id="message-container"></div>
+        <h1 style='color:#ff4b5c; text-align: center;'>❤️ Just for You ❤️</h1>
+        <div id="message-container" style="text-align: center; font-size: 20px; color: #333; margin-top: 20px;"></div>
     `;
 
     // Create an audio element dynamically
@@ -65,6 +64,8 @@ document.getElementById("yes-btn").addEventListener("click", function () {
     playButton.style.border = "none";
     playButton.style.cursor = "pointer";
     playButton.style.marginTop = "20px";
+    playButton.style.display = "block";
+    playButton.style.margin = "auto";
     document.body.appendChild(playButton);
 
     // Love Proposal Paragraph
@@ -76,6 +77,8 @@ document.getElementById("yes-btn").addEventListener("click", function () {
         playButton.remove(); // Remove the button after playing music
 
         // Start typing message immediately
-        typeMessage(message, 15000); // Typing speed set to 15 seconds (adjust as needed)
+        setTimeout(() => {
+            typeMessage(message, 15000); // Typing lasts for 15 seconds
+        }, 1000);
     };
 });
