@@ -13,9 +13,6 @@ function createHeart() {
 }
 setInterval(createHeart, 300);
 
-// Get Music Element
-const bgMusic = document.getElementById("bg-music");
-
 // Moving "No" Button
 const noBtn = document.getElementById("no-btn");
 noBtn.addEventListener("mouseover", function () {
@@ -30,6 +27,7 @@ function typeMessage(message, duration) {
     let i = 0;
     const container = document.getElementById("message-container");
     container.style.width = "auto";
+    container.innerHTML = ""; // Clear existing text
 
     function type() {
         if (i < message.length) {
@@ -45,7 +43,17 @@ function typeMessage(message, duration) {
 // "Yes" Button Click
 document.getElementById("yes-btn").addEventListener("click", function () {
     // Clear the screen and show "Just for You"
-    document.body.innerHTML = `<h1 style='color:#ff4b5c;'>❤️ Just for You ❤️</h1><div id="message-container"></div>`;
+    document.body.innerHTML = `
+        <h1 style='color:#ff4b5c;'>❤️ Just for You ❤️</h1>
+        <div id="message-container"></div>
+    `;
+
+    // Create an audio element dynamically
+    const bgMusic = document.createElement("audio");
+    bgMusic.src = "music.mp3";
+    bgMusic.id = "bg-music";
+    bgMusic.style.display = "none";
+    document.body.appendChild(bgMusic);
 
     // Create the "Click to Play Music" button
     const playButton = document.createElement("button");
@@ -67,9 +75,7 @@ document.getElementById("yes-btn").addEventListener("click", function () {
         // Love Proposal Paragraph
         const message = "I knew you would say YES! 💖 You are my world, my happiness, and my love forever! 🌹 Every moment with you is a dream come true. I promise to cherish and love you endlessly. 💑";
 
-        // Start typing message till the song ends
-        bgMusic.onloadedmetadata = function () {
-            typeMessage(message, bgMusic.duration * 1000);
-        };
+        // Start typing message once the music starts playing
+        typeMessage(message, bgMusic.duration * 1000);
     };
 });
