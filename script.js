@@ -76,6 +76,8 @@ document.getElementById("yes-btn").addEventListener("click", function () {
         const message = "I knew you would say YES! 💖 You are my world, my happiness, and my love forever! 🌹 Every moment with you is a dream come true. I promise to cherish and love you endlessly. 💑";
 
         // Start typing message once the music starts playing
-        typeMessage(message, bgMusic.duration * 1000);
+   bgMusic.onloadedmetadata = function () {
+            typeMessage(message, bgMusic.duration * 1000);
+        };
     };
 });
