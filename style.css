@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+    font-family: 'Pacifico', cursive;
+    background-color: #ffdde1;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+h1 {
+    font-size: 3em;
+    color: #ff4b5c;
+}
+
+p {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yes-btn {
+    background-color: #ff4b5c;
+    color: white;
+    border-radius: 10px;
+}
+
+#no-btn {
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    position: absolute;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Floating Hearts */
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 2em;
+    animation: float 5s linear infinite;
+}
+
+/* Play Music Button */
+#play-music-btn {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff4b5c;
+    color: white;
+    font-size: 1em;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Typing Effect */
+#message-container {
+    font-size: 2em;
+    color: #ff4b5c;
+    margin-top: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid;
+    width: 0;
+    display: inline-block;
+}
