@@ -6,7 +6,7 @@ function createHeart() {
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = Math.random() * 2 + 3 + "s";
     document.body.appendChild(heart);
-    
+
     setTimeout(() => {
         heart.remove();
     }, 5000);
@@ -67,17 +67,15 @@ document.getElementById("yes-btn").addEventListener("click", function () {
     playButton.style.marginTop = "20px";
     document.body.appendChild(playButton);
 
+    // Love Proposal Paragraph
+    const message = "I knew you would say YES! 💖 You are my world, my happiness, and my love forever! 🌹 Every moment with you is a dream come true. I promise to cherish and love you endlessly. 💑";
+
     // When the user clicks the button, start music and show message
     playButton.onclick = () => {
         bgMusic.play();
         playButton.remove(); // Remove the button after playing music
 
-        // Love Proposal Paragraph
-        const message = "I knew you would say YES! 💖 You are my world, my happiness, and my love forever! 🌹 Every moment with you is a dream come true. I promise to cherish and love you endlessly. 💑";
-
-        // Start typing message once the music starts playing
-   bgMusic.onloadedmetadata = function () {
-            typeMessage(message, bgMusic.duration * 1000);
-        };
+        // Start typing message immediately
+        typeMessage(message, 15000); // Typing speed set to 15 seconds (adjust as needed)
     };
 });
